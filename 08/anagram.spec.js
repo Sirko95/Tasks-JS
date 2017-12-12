@@ -8,14 +8,14 @@ describe('Anagram', function () {
     expect(matches).toEqual([]);
   });
 
-  xit('detects simple anagram', function () {
+  it('detects simple anagram', function () {
     var subject = new Anagram('ant');
     var matches = subject.matches(['tan', 'stand', 'at']);
 
     expect(matches).toEqual(['tan']);
   });
 
-  xit('does not detect false positives', function () {
+  it('does not detect false positives', function () {
     var subject = new Anagram('galea');
     var matches = subject.matches(['eagle']);
 
@@ -29,7 +29,7 @@ describe('Anagram', function () {
     expect(matches).toEqual(['stream', 'maters']);
   });
 
-  xit('does not detect anagram subsets', function () {
+  it('does not detect anagram subsets', function () {
     var subject = new Anagram('good');
     var matches = subject.matches(['dog', 'goody']);
 
