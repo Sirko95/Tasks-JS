@@ -3,21 +3,34 @@ function List(arr) {
         this.arr = [];
     } else this.arr = arr;
 }
-
+List.prototype.length = function length() {
+    let count = 0;
+    while (this.arr[count]) {
+        count++;
+    }
+    return count
+}
 List.prototype.compare = function compare(secArr) {
-    let mass = [];
-    console.log(this.arr[2]);
-    if( secArr.lenght == this.arr.lenght) {
-        console.log(secArr.lenght);
-        for ( var firstPos = 0; firstPos < this.arr.lenght; firstPos++ ) {
-            for ( var secondPos = 0; secondPos < secArr.lenght; secondPos++ ) {
-                if( this.arr[firstPos] != secArr[secondPos] ) {
-                    return 'UNEQUAL'
-                }
-            }
+    const secArrText = secArr['arr'].join();
+    const arrText = this.arr.join();
+    if( secArr['arr'].length == this.arr.length) {
+        if( this.arr[0] != secArr['arr'][0] ) {
+            return 'UNEQUAL'
         }
         return 'EQUAL'
     }
+    if (secArr['arr'].length > this.arr.length) {
+        if(secArrText.indexOf(arrText) >= 0) {
+            return 'SUBLIST'
+        }
+    }
+    if (secArr['arr'].length < this.arr.length) {
+        if(arrText.indexOf(secArrText) >= 0) {
+            return 'SUPERLIST'
+        } else return 'UNEQUAL'
+    }
+    else return 'UNEQUAL'
 }
+    
 
 module.exports = List;
