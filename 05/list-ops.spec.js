@@ -18,7 +18,6 @@ describe('List', function () {
     it('appends two empty lists', function () {
       var emptyList = new List();
       expect(emptyList.append(emptyList)).toEqual([]);
-      console.log(emptyList.values);
     });
 
     it('appends an empty list to a non-empty list', function () {
@@ -114,14 +113,14 @@ describe('List', function () {
   });
 
   describe('reverse', function () {
-    xit('reverses an empty list', function () {
+    it('reverses an empty list', function () {
       var list = new List([]);
-      expect(list.reverse().values).toEqual([]);
+      expect(list.reverse()).toEqual([]);
     });
 
-    xit('reverses a non-empty list', function () {
+    it('reverses a non-empty list', function () {
       var list = new List([1, 3, 5, 7]);
-      expect(list.reverse().values).toEqual([7, 5, 3, 1]);
+      expect(list.reverse()).toEqual([7, 5, 3, 1]);
     });
   });
 
@@ -130,12 +129,12 @@ describe('List', function () {
     var list2 = new List([5, 1]);
 
     beforeAll(function () {
-      spyOn(list.values, 'map').and.callThrough();
-      spyOn(list.values, 'filter').and.callThrough();
-      spyOn(list.values, 'reduce').and.callThrough();
-      spyOn(list.values, 'reduceRight').and.callThrough();
-      spyOn(list.values, 'reverse').and.callThrough();
-      spyOn(list.values, 'concat').and.callThrough();
+      spyOn(list, 'map').and.callThrough();
+      spyOn(list, 'filter').and.callThrough();
+      spyOn(list, 'reduce').and.callThrough();
+      spyOn(list, 'reduceRight').and.callThrough();
+      spyOn(list, 'reverse').and.callThrough();
+      spyOn(list, 'concat').and.callThrough();
 
       list.length();
       list.append(list2);
@@ -148,13 +147,13 @@ describe('List', function () {
     });
 
     xit('Array.prototype.map()', function () {
-      expect(list.values.map).not.toHaveBeenCalled();
+      expect(list.map).not.toHaveBeenCalled();
     });
     xit('Array.prototype.filter()', function () {
       expect(list.values.filter).not.toHaveBeenCalled();
     });
     xit('Array.prototype.reduce()', function () {
-      expect(list.values.reduce).not.toHaveBeenCalled();
+      expect(list.reduce).not.toHaveBeenCalled();
     });
     xit('Array.prototype.reduceRight()', function () {
       expect(list.values.reduceRight).not.toHaveBeenCalled();

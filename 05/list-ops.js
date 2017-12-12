@@ -45,4 +45,13 @@ List.prototype.map = function map(func) {
     return mass;
 }
 
+List.prototype.reverse = function reverse() {
+    let mass = [];
+    for (var i = 1; i <= this.arr.length; i++ ) {
+        mass.push(this.arr[this.arr.length - i]);
+    }
+
+    return mass
+}
+
 module.exports = List;
