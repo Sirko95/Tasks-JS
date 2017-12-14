@@ -17,13 +17,16 @@ Anagram.prototype.matches = function matches() {
     }
     for(var i = 0; i < arguments[0].length; i++) {
         if(arguments[0][i].length == this.anagram.length) {
-           const lowerArg = arguments[0][i].toLowerCase();
-           const lowerAnagr = this.anagram.toLowerCase();
+           const lowerArg = arguments[0][i].toLowerCase().split('').sort();
+           const lowerAnagr = this.anagram.toLowerCase().split('').sort();
            requiet = true;
            for(var j = 0; j < this.anagram.length; j++) {
-               if(lowerArg.indexOf(lowerAnagr[j]) == -1) {
+               if(lowerArg[j] != lowerAnagr[j]) {
                    requiet = false;
                }
+           }
+           if(arguments[0][i].toLowerCase() == this.anagram.toLowerCase()) {
+               requiet = false;
            }
            if(requiet && lowerAnagr != lowerArg) {
                 mass.push(arguments[0][i]);           
